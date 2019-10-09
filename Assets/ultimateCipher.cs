@@ -231,7 +231,7 @@ public class ultimateCipher : MonoBehaviour {
                 encrypt = encrypt + "" + chart[alpha.IndexOf(kw1[aa]) / 2][alpha.IndexOf(word[aa])];
             else
                 encrypt = encrypt + "" + alpha[chart[alpha.IndexOf(kw1[aa]) / 2].IndexOf(word[aa])];
-            Debug.LogFormat("[Violet Cipher #{0}] Cipher Rows: {1} -> {2}", moduleId, word[aa], encrypt[aa]);
+            Debug.LogFormat("[Violet Cipher #{0}] {1} -> {2}", moduleId, word[aa], encrypt[aa]);
         }
         return encrypt;
     }
@@ -307,14 +307,21 @@ public class ultimateCipher : MonoBehaviour {
         cipher[0] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         for(int aa = 0; aa < 6; aa++)
             cipher[aa + 1] = key.Substring(key.IndexOf(kw1[aa])) + "" + key.Substring(0, key.IndexOf(kw1[aa]));
-        Debug.LogFormat("[Violet Cipher #{0}] Quagmire Rows: \n ABCDEFGHIJKLMNOPQRSTUVWXYZ \n {1} \n {2} \n {3} \n {4} \n {5} \n {6}", moduleId, cipher[1], cipher[2], cipher[3], cipher[4], cipher[5], cipher[6]);
+        Debug.LogFormat("[Violet Cipher #{0}] Quagmire Rows: ", moduleId);
+        Debug.LogFormat("[Violet Cipher #{0}] {1}", moduleId, cipher[1]);
+        Debug.LogFormat("[Violet Cipher #{0}] {1}", moduleId, cipher[2]);
+        Debug.LogFormat("[Violet Cipher #{0}] {1}", moduleId, cipher[3]);
+        Debug.LogFormat("[Violet Cipher #{0}] {1}", moduleId, cipher[4]);
+        Debug.LogFormat("[Violet Cipher #{0}] {1}", moduleId, cipher[5]);
+        Debug.LogFormat("[Violet Cipher #{0}] {1}", moduleId, cipher[6]);
+
         pages[1][0] = kw2.ToUpper();
         pages[0][1] = kw1.ToUpper();
         string encrypt = "";
         for (int bb = 0; bb < 6; bb++)
         {
             encrypt = encrypt + "" + cipher[bb + 1][cipher[0].IndexOf(word[bb])];
-            Debug.LogFormat("[Violet Cipher #{0}] Cipher Rows: {1} -> {2}", moduleId, word[bb], encrypt[bb]);
+            Debug.LogFormat("[Violet Cipher #{0}] {1} -> {2}", moduleId, word[bb], encrypt[bb]);
         }
         return encrypt;
     }
