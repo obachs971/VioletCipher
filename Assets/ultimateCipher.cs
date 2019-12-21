@@ -295,7 +295,7 @@ public class ultimateCipher : MonoBehaviour {
         {
             encrypt = encrypt + "" + word[cipher.IndexOf(order[aa])];
         }
-        Debug.LogFormat("[Violet Cipher #{0}] {1} -> {2}", moduleId, word, encrypt);
+        Debug.LogFormat("[Violet Cipher #{0}] {1} + {2} => {3}", moduleId, word, routenumber, encrypt);
         return encrypt;
     }
     string QuagmireEnc(string word, string kw1)
@@ -385,7 +385,8 @@ public class ultimateCipher : MonoBehaviour {
         screenTexts[0].fontSize = 40;
         screenTexts[1].fontSize = 40;
         screenTexts[2].fontSize = 40;
-
+        if(page == 1)
+            screenTexts[0].fontSize = 35;
 
     }
     void submitWord(KMSelectable submitButton)
@@ -429,6 +430,7 @@ public class ultimateCipher : MonoBehaviour {
                 screenTexts[0].text = "";
                 screenTexts[1].text = "";
                 screenTexts[2].text = pressed.GetComponentInChildren<TextMesh>().text;
+                screenTexts[2].fontSize = 40;
                 submitScreen = true;
             }
         }
